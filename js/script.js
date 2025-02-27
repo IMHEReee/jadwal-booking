@@ -1,4 +1,7 @@
-// URL Google Sheets dalam format CSV
+// Nomor WhatsApp tujuan (Ganti dengan nomor admin)
+const adminWhatsApp = "6281344374965"; // Format internasional tanpa "+"
+
+// URL Google Sheets dalam format CSV (Ganti dengan link publikasi CSV milik Anda)
 const csvUrl =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRXZ7qnAE6UjUu2Owvr5V9T5DzdlkJCmwsnb1kYIcfrCjBkbnSHVAVuzaRnpgy_mDvqPUgThI_WGOdQ/pub?output=csv";
 
@@ -14,7 +17,7 @@ async function fetchData() {
     const tbody = table.querySelector("tbody");
     const dateSelect = document.getElementById("dateSelect");
 
-    // Mengambil semua tanggal unik di kolom pertama (baris ke-1 dilewati)
+    // Mengambil semua tanggal unik di kolom pertama (baris pertama dilewati)
     let uniqueDates = [...new Set(rows.slice(1).map((row) => row[0].trim()))];
 
     // Isi dropdown dengan tanggal unik
@@ -44,7 +47,7 @@ function updateTable(rows, selectedDate) {
   const thead = table.querySelector("thead tr");
   const tbody = table.querySelector("tbody");
 
-  // Kosongkan tabel
+  // Kosongkan tabel sebelum diisi ulang
   thead.innerHTML = "";
   tbody.innerHTML = "";
 
@@ -68,11 +71,24 @@ function updateTable(rows, selectedDate) {
       const td = document.createElement("td");
       let value = cell.trim();
 
-      // Konversi angka 1 dan 0 menjadi teks yang lebih jelas
+      // Ambil nama room dari header
+      let roomName = headers[index];
+      let bookingTime = row[1]; // Kolom kedua adalah jam
+
+      // Konversi angka 1 dan 0 menjadi tombol WhatsApp atau status booked
       if (index > 1) {
         // Kolom pertama adalah tanggal, kedua jam
         if (value === "1") {
-          td.textContent = "Tersedia";
+          // Buat pesan otomatis untuk WhatsApp
+          let bookingMessage = `Halo Kak,saya ingin memesan ${roomName} pada jam ${bookingTime}.`;
+
+          // Pastikan pesan dienkode dengan benar agar tidak kacau
+          let whatsappLink = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(
+            bookingMessage
+          )}`;
+
+          // Buat tombol WhatsApp
+          td.innerHTML = `<a href="${whatsappLink}" target = "_blank" class ="whatsapp-button">Tersedia</a>`;
           td.classList.add("available");
         } else if (value === "0") {
           td.textContent = "Dibooking";
