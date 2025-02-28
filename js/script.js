@@ -79,8 +79,9 @@ function updateTable(rows, selectedDate) {
       if (index > 1) {
         // Kolom pertama adalah tanggal, kedua jam
         if (value === "1") {
+          let bookingDate = row[0]; //kolom pertama adalah tanggal
           // Buat pesan otomatis untuk WhatsApp
-          let bookingMessage = `Halo Kak,saya ingin memesan ${roomName} pada jam ${bookingTime}.`;
+          let bookingMessage = `Halo Kak,saya ingin memesan ${roomName} pada tanggal ${bookingDate} jam ${bookingTime}.`;
 
           // Pastikan pesan dienkode dengan benar agar tidak kacau
           let whatsappLink = `https://wa.me/${adminWhatsApp}?text=${encodeURIComponent(
