@@ -23,6 +23,57 @@ h1 {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ===================== */
+
+/* Tampilan Responsif untuk HP */
+
+/* ===================== */
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 20px;
+    padding: 10px;
+  }
+  /* 🔹 Tabel Responsif */
+  table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  th,
+  td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  /* 🔹 Dropdown Pilih Tanggal */
+  select {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+  }
+  /* 🔹 Tombol "Tersedia" Lebih Nyaman Diklik */
+  .whatsapp-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px;
+  }
+  /* 🔹 Status Dibooking */
+  .booked {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
 /* Styling Dropdown */
 
 label {
