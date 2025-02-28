@@ -1,149 +1,186 @@
-/* Styling Global */
+/* ============================= */
+
+/* ✅ Global Styles (Gaya Umum) */
+
+/* ============================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
-  text-align: center;
+  background-color: #f8f9fa;
+  /* Warna latar belakang */
+  padding: 20px;
 }
 
-h1 {
-  background-color: #2c3e50;
-  color: white;
-  padding: 15px;
-  font-size: 24px;
-}
+/* ============================= */
+
+/* ✅ Container Utama */
+
+/* ============================= */
 
 .container {
-  width: 90%;
   max-width: 900px;
-  margin: 20px auto;
+  margin: auto;
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ===================== */
+/* ============================= */
 
-/* Tampilan Responsif untuk HP */
+/* ✅ Header */
 
-/* ===================== */
+/* ============================= */
+
+h1 {
+  text-align: center;
+  background: #2c3e50;
+  /* Warna biru tua */
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 22px;
+}
+
+/* ============================= */
+
+/* ✅ Dropdown Pilih Tanggal */
+
+/* ============================= */
+
+label {
+  font-weight: bold;
+  display: block;
+  margin: 10px 0;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* ============================= */
+
+/* ✅ Tabel Ketersediaan */
+
+/* ============================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background: #34495e;
+  color: white;
+  font-size: 16px;
+}
+
+td {
+  white-space: nowrap;
+  /* Mencegah teks meluber */
+}
+
+/* ============================= */
+
+/* ✅ Status Ketersediaan */
+
+/* ============================= */
+
+.available {
+  background: #d4edda;
+  /* Hijau muda */
+  color: #155724;
+  font-weight: bold;
+}
+
+.booked {
+  background: #f8d7da;
+  /* Merah muda */
+  color: #721c24;
+  font-weight: bold;
+}
+
+/* ============================= */
+
+/* ✅ Tombol WhatsApp */
+
+/* ============================= */
+
+.whatsapp-button {
+  display: block;
+  width: 90%;
+  max-width: 100px;
+  /* Mencegah tombol terlalu besar */
+  text-align: center;
+  font-size: 14px;
+  padding: 8px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: auto;
+  /* Pusatkan tombol */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe57;
+}
+
+/* ============================= */
+
+/* ✅ Responsif untuk Mobile */
+
+/* ============================= */
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 14px;
+    padding: 10px;
   }
   .container {
     width: 95%;
-    padding: 10px;
+    padding: 15px;
   }
   h1 {
     font-size: 20px;
-    padding: 10px;
+    padding: 12px;
   }
-  /* 🔹 Tabel Responsif */
   table {
-    width: 100%;
     display: block;
     overflow-x: auto;
     white-space: nowrap;
   }
   th,
   td {
-    padding: 8px;
-    font-size: 14px;
+    padding: 6px;
+    font-size: 12px;
   }
-  /* 🔹 Dropdown Pilih Tanggal */
-  select {
-    width: 100%;
-    font-size: 16px;
-    padding: 10px;
-  }
-  /* 🔹 Tombol "Tersedia" Lebih Nyaman Diklik */
   .whatsapp-button {
-    display: block;
     width: 100%;
-    text-align: center;
-    font-size: 16px;
-    padding: 12px;
+    font-size: 12px;
+    padding: 6px;
   }
-  /* 🔹 Status Dibooking */
-  .booked {
-    font-size: 14px;
-    padding: 10px;
-  }
-}
-
-/* Styling Dropdown */
-
-label {
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-select {
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-
-/* Styling Tabel */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-
-th {
-  background-color: #34495e;
-  color: white;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Warna untuk status */
-
-.available {
-  background-color: #d4edda;
-  /* Hijau untuk "Tersedia" */
-  color: #155724;
-  font-weight: bold;
-}
-
-.booked {
-  background-color: #f8d7da;
-  /* Merah untuk "Dibooking" */
-  color: #721c24;
-  font-weight: bold;
-}
-
-/* Styling untuk tombol WhatsApp */
-
-.whatsapp-button {
-  display: inline-block;
-  text-decoration: none;
-  background-color: #25d366;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  white-space: nowrap;
-  /* Mencegah teks WhatsApp memanjang */
-}
-
-.whatsapp-button:hover {
-  background-color: #1ebe57;
 }
